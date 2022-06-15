@@ -1,0 +1,80 @@
+body {
+  text-align: center;
+  font-family: courier;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px;
+}
+.board {
+  margin-top: 50px;
+  padding: 30px;
+  width: 700px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  background-color: blue;
+}
+
+.column {
+  width: 100px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.column .tile {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(45, 117, 189);
+  border-radius: 80%;
+}
+
+.column:hover {
+  background-color: #99c2e5;
+  opacity: 0.8;
+  transition: background-color 1s;
+  transition: opacity 2s;
+}
+
+.board .tile.player-1 {
+  background-color: red;
+  transition: background-color 1s ease-in-out;
+  z-index: 1;
+}
+
+.board .tile.player-2 {
+  background-color: yellow;
+  transition: background-color 1s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+.board .tile.alert {
+  opacity: 0.5;
+  z-index: 10;
+  box-shadow: 3px 3px 3px rgb(247, 235, 235);
+  transform: scale(0.8);
+  animation: pulse 1s ease-in-out infinite;
+}
